@@ -6,13 +6,15 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    entry: {
-        app: "/../src/index.tsx",
-    },
-    output: {
-        filename: "[name].js",
-        path: path.resolve(__dirname, "dist")
-    },
+    entry: "./src/index.tsx",
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./src/index.html"
+        }),
+        new MiniCssExtractPlugin({
+            filename: "style.css"
+        }),
+    ],
     module: {
         rules:[
             {
@@ -24,17 +26,35 @@ module.exports = {
                 test: /\.ts(x?)$/,
                 use: "ts-loader"
             },
+            // {
+            //     test: /\.css$/,
+            //     use: new MiniCssExtractPlugin.loader({
+            //         use: ["css-loader"]
+            //     })
+            // },
+            // {
+            //     test: /\.less$/,
+            //     use: new MiniCssExtractPlugin.loader({
+            //         use: ["css-loader", "less-loader"]
+            //     })
+            // },
             {
                 test: /\.css$/,
-                use: MiniCssExtractPlugin.loader({
-                    use: ["css-loader"]
-                })
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    "css-loader"
+                ]
             },
             {
                 test: /\.less$/,
-                use: MiniCssExtractPlugin.loader({
-                    use: ["css-loader", "less-loader"]
-                })
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    "css-loader", "less-loader"
+                ]
             },
             {
                 test: /\.(jpg|jpeg|png|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -56,13 +76,5 @@ module.exports = {
     },
     resolve: {
         extensions: [".tsx", ".ts", ".js"]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: __dirname + "/../src/index.html"
-        }),
-        new MiniCssExtractPlugin({
-            filename: "style.css"
-        }),
-    ]
+    }
 };

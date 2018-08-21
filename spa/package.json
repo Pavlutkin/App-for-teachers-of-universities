@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Application for teacher of Universities",
   "scripts": {
-    "dev": "webpack-dev-server --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "dev": "webpack-dev-server --open --config ./config/webpack.dev.config.js",
+    "build": "webpack --config ./config/webpack.prod.config"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/AlexanderPavlutkin/spa-for-teachers-of-universities/src/master/"
+    "url": "https://github.com/Pavlutkin/App-for-teachers-of-universities"
   },
   "author": "Alexander Pavlutkin",
   "license": "ISC",
@@ -23,6 +23,9 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@types/react": "^16.4.11",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-redux": "^6.0.6",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
@@ -47,6 +50,7 @@
     "tslint-loader": "^3.6.0",
     "typescript": "^3.0.1",
     "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
     "webpack-merge": "^4.1.4"
   }
