@@ -1,0 +1,52 @@
+{
+    "rules": {
+      "class-name": true,
+      "eofline": true,
+      "indent": [
+        true,
+        "spaces"
+      ],
+      "interface-name": [
+        true,
+        "always-prefix"
+      ],
+      "no-consecutive-blank-lines": true,
+      "no-construct": true,
+      "no-debugger": true,
+      "no-eval": true,
+      "no-internal-module": true,
+      "no-namespace": true,
+      "no-reference": true,
+      "no-trailing-whitespace": true,
+      "no-var-keyword": true,
+      "quotemark": [
+        true,
+        "single",
+        "jsx-double",
+        "avoid-escape"
+      ],
+      "triple-equals": [
+        true,
+        "allow-null-check",
+        "allow-undefined-check"
+      ],
+      "typedef-whitespace": [
+        true,
+        {
+          "call-signature": "nospace",
+          "index-signature": "nospace",
+          "parameter": "nospace",
+          "property-declaration": "nospace",
+          "variable-declaration": "nospace"
+        },
+        {
+          "call-signature": "onespace",
+          "index-signature": "onespace",
+          "parameter": "onespace",
+          "property-declaration": "onespace",
+          "variable-declaration": "onespace"
+        }
+      ],
+      "use-isnan": true
+    }
+  }
